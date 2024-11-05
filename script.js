@@ -6,20 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const taskList = document.getElementById('task-list');
     const taskCounter = document.getElementById('task-counter');
 
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || []; // Carrega as tarefas do localStorage
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || []; 
 
-    // Função para salvar tarefas no localStorage
+  
     function saveTasksToLocalStorage() {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
-    // Função para atualizar o contador de tarefas restantes
+    
     function updateTaskCounter() {
         const remainingTasks = tasks.filter(task => !task.completed).length;
         taskCounter.textContent = `Tarefas restantes: ${remainingTasks}`;
     }
 
-    // Função para adicionar uma nova tarefa
+   
     function addTask(taskText, taskCategory, taskDeadline) {
         const task = {
             text: taskText,
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTasks();
     }
 
-    // Função para renderizar as tarefas na tela
+
     function renderTasks() {
         taskList.innerHTML = '';
         tasks.forEach((task, index) => {
@@ -46,19 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 taskItem.classList.add('completed');
             }
 
-            // Marcar a tarefa como concluída ao clicar nela
+       
             taskItem.addEventListener('click', () => {
                 task.completed = !task.completed;
                 saveTasksToLocalStorage();
                 renderTasks();
             });
 
-            // Botão para remover a tarefa
+            
             const removeButton = document.createElement('button');
             removeButton.textContent = 'Remover';
             removeButton.classList.add('remove-task');
             removeButton.addEventListener('click', (e) => {
-                e.stopPropagation(); // Evitar que o clique no botão remova a tarefa
+                e.stopPropagation(); 
                 tasks.splice(index, 1);
                 saveTasksToLocalStorage();
                 renderTasks();
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTaskCounter();
     }
 
-    // Adiciona tarefa ao clicar no botão
+  
     addTaskButton.addEventListener('click', () => {
         const taskText = taskInput.value.trim();
         const taskCategory = taskCategoryInput.value.trim();
@@ -78,18 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (taskText && taskCategory && taskDeadline) {
             addTask(taskText, taskCategory, taskDeadline);
-            taskInput.value = ''; // Limpa o campo de entrada
-            taskCategoryInput.value = ''; // Limpa o campo de categoria
-            taskDeadlineInput.value = ''; // Limpa o campo de prazo
+            taskInput.value = ''; 
+            taskCategoryInput.value = ''; 
+            taskDeadlineInput.value = ''; 
         }
     });
 
-    // Adiciona tarefa ao pressionar 'Enter'
+  
     taskInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
             addTaskButton.click();
         }
     });
 
-    renderTasks(); // Renderiza as tarefas ao carregar a página
+    renderTasks(); 
 });
