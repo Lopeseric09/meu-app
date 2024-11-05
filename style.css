@@ -11,8 +11,8 @@ html, body {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: Times New Roman;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@ input {
 button {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #1E90FF
     color: white;
     border: none;
     border-radius: 5px;
