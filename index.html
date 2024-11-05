@@ -1,8 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Produtividade</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,16 +5,10 @@
     <div class="container">
         <h1>Tarefas do Eric</h1>
         <input type="text" id="new-task" placeholder="Adicione uma nova tarefa">
-        
-        <!-- Novo campo para categoria -->
-        <input type="text" id="task-category" placeholder="Categoria (ex: Casa, Trabalho)">
-        
-        <!-- Novo campo para prazo -->
+             <input type="text" id="task-category" placeholder="Categoria">
         <input type="date" id="task-deadline">
-
         <button id="add-task">Adicionar Tarefa</button>
-        
-        <ul id="task-list"></ul>
+                <ul id="task-list"></ul>
         <p id="task-counter">Tarefas restantes: 0</p>
     </div>
     <script src="script.js"></script>
